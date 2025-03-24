@@ -1,0 +1,13 @@
+
+<img src={{country.flag_url}} alt="flag img">
+<h1>{{ country.name }}</h1>
+<p><strong>Region: </strong>{{country.region}}</p>
+<p>Sub-Region: {{country.subregion}}</p>
+<p><strong>Population: </strong>{{ country.population }}</p>
+<p>currencies: {{ country.currencies }}</p>
+<p>Capital:  {{country.capital}}</p>
+<p>Languages:  {{country.languages}}</p>
+<p>Continents:  {{country.continents}}</p>
+<!-- capital, languages, currencies, etc -->
+
+<a href="{% url 'country_list' %}">Back to List</a>
