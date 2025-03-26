@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from .utils import fetch_countries
+from django.http import JsonResponse
+import requests
 
 from .models import Country
 # Create your views here.
+
 class GalleryView(ListView):
     model=Country
     template_name='mainpage/country/country_list.html'
@@ -12,3 +16,10 @@ class GalleryView(ListView):
 class DetailView(DetailView):
     model=Country
     template_name='mainpage/country/country_detail.html'
+
+def reload_countries(request):
+    success = fetch_countries()
+    if success:
+        return JsonResponse({"message": "Data reloaded successfully!", "status": "success"})
+    else:
+        return JsonResponse({"message": "Failed to reload data.", "status": "error"})

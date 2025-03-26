@@ -1,5 +1,6 @@
 from django.db import models
 from djmoney.models.fields import MoneyField
+from datetime import datetime
 
 
 # Create your models here.
@@ -13,6 +14,9 @@ class Country(models.Model):
     flag_url = models.URLField(blank=True, null=True)
     languages=models.CharField(max_length=255, blank=True, null=True)
     continents=models.CharField(max_length=255, blank=True, null=True)
+    last_updated=datetime.now()
 
+
+   
     def __str__(self):
         return self.name
