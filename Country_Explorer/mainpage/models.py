@@ -11,7 +11,7 @@ class Country(models.Model):
     subregion = models.CharField(max_length=500, blank=True, null=True)
     flag_url = models.URLField(blank=True, null=True)
     
-    languages=models.JSONField(null=True, blank=True)
+    languages=models.JSONField(default=dict,null=True, blank=True)
     continents=models.CharField(max_length=500, blank=True, null=True)
     last_updated=models.DateTimeField(auto_now=True)  # Ensure this field is present
 

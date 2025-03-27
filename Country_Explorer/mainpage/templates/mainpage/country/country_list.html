@@ -1,9 +1,12 @@
 {% extends 'mainpage/base.html' %}
 {% load static %}
+
 {% block content %}
 
 <h1>All Countries</h1>
-<button onclick="reloadData()">Reload data</button>
+
+
+
 <div id="cardholder">
     {% for country in countries %}
    

@@ -24,3 +24,12 @@ def reload_countries(request):
         return JsonResponse({"message": "Data reloaded successfully!", "status": "success"})
     else:
         return JsonResponse({"message": "Failed to reload data.", "status": "error"})
+    
+def search(request):
+    return render(request,'mainpage/search/search.html')
+
+def search_results(request):
+    query = request.GET.get('q')
+    results = Country.objects.filter(name__icontains=query) if query else None
+   
+    return render(request, 'mainpage/search/searchresults.html', {'countries': results, 'query': query})

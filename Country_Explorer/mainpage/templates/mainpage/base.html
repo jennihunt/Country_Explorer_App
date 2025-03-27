@@ -6,9 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="{% static 'mainpage/styles.css' %}">
     <title>{% block title %}Country Explorer{% endblock %}</title>
+    <div id="url-container" data-fetch-url="{% url 'reload_countries' %}"></div>
+   
+    <script src="{% static 'mainpage/script.js' %}"></script>
 </head>
+
 <body>
-    <h1>hi</h1>
-    {% block content %}{% endblock %}
+
+    
+    {% include 'mainpage/search/search.html' %}
+    <h1>Below</h1>
+    <button onclick="reloadData()">Reload data</button>
+
+    {% block content %}
+    
+    
+    {% endblock %}
+
 </body>
+
 </html>
