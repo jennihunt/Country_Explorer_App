@@ -1,9 +1,10 @@
 {% extends 'mainpage/base.html' %}
-{% load static%}
+{% load static %}
 {% block content %}
+
 <h1>All Countries</h1>
 <button onclick="reloadData()">Reload data</button>
-<ul>
+<div id="cardholder">
     {% for country in countries %}
    
         <div id="card">
@@ -11,12 +12,13 @@
             <a href="{% url 'country_detail' country.pk %}">{{ country.name}}</a><br>
 
             Region: {{country.region}}<br>
-            Population: {{country.population}}
+            Population: {{country.population}}<br>
+            Last Updated:{{country.last_updated}}
 
 
         </div>
    
     {% endfor %}
-</ul>
+    </div>
 
 {% endblock %}

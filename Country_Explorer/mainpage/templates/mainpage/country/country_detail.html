@@ -1,13 +1,36 @@
-
 <img src={{country.flag_url}} alt="flag img">
 <h1>{{ country.name }}</h1>
 <p><strong>Region: </strong>{{country.region}}</p>
-<p>Sub-Region: {{country.subregion}}</p>
+<p><strong>Sub-Region: </strong>{{country.subregion}}</p>
 <p><strong>Population: </strong>{{ country.population }}</p>
-<p>currencies: {{ country.currencies }}</p>
-<p>Capital:  {{country.capital}}</p>
-<p>Languages:  {{country.languages}}</p>
-<p>Continents:  {{country.continents}}</p>
+<p><strong>Capital:</strong> {{country.capital}}</p>
+<p><strong>Continents</strong> {{country.continents}}</p>
+
+{% if country.currencies %}
+<!-- Loop through the currencies dictionary and extract the name -->
+ <strong> Currency :</strong>
+{% for key,currency_info in country.currencies.items%}
+<li>{{key}}, {{ currency_info }} </li>
+{% endfor %}
+{% else %}
+<p>No currencies available</p>
+{% endif %}
+<br>
+
+
+{% if country.languages %}
+<!-- Loop through the currencies dictionary and extract the name -->
+ <strong>Languages</strong>
+{% for key,language in country.languages.items %}
+<li>{{language}}</li>
+{% endfor %}
+{% else %}
+<p>No currencies available</p>
+{% endif %}
+
+
+
+<h4><u>Last updated:</u> {{country.last_updated}}</h4>
 <!-- capital, languages, currencies, etc -->
 
 <a href="{% url 'country_list' %}">Back to List</a>

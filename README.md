@@ -20,7 +20,9 @@
 
 ### **Fetch Country Data:**
 
-- Develop a Django management command (or view) to fetch data from the REST Countries API.
+- Develop a Django management command and view to fetch data from the REST Countries API.
+- # python3 manage.py fetch_countries
+
 - Parse the API response and populate the PostgreSQL database using your models.
 
 ### **Data Refresh Mechanism:**

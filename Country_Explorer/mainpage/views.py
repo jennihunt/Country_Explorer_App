@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .utils import fetch_countries
+from .utils import fetch_store_countries
 from django.http import JsonResponse
 import requests
 
@@ -18,7 +18,8 @@ class DetailView(DetailView):
     template_name='mainpage/country/country_detail.html'
 
 def reload_countries(request):
-    success = fetch_countries()
+    success = fetch_store_countries()
+    print("hey")
     if success:
         return JsonResponse({"message": "Data reloaded successfully!", "status": "success"})
     else:
