@@ -1,5 +1,5 @@
 import requests
-from datetime import datetime
+from django.utils import timezone
 from mainpage.models import Country
 from django.db import DataError
 
@@ -61,7 +61,7 @@ def fetch_store_countries():
                             "flag_url": flag_url,
                             "languages":languages,
                             "continents":continents,
-                            'last_updated':datetime.now()
+                            'last_updated':timezone.now()
                             }
                     )
 

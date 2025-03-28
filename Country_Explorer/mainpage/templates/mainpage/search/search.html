@@ -1,6 +1,6 @@
-        <form method="GET" action="{% url 'search_results' %}"> 
-            <h2>Search By Name:</h2>
-            <input id='search-input' name='q' type="text" placeholder="Search..." oninput="liveSearch()">
-            <!-- <button type="submit">Search</button>  -->
+        <form class="d-flex" method="GET" action="{% url 'search_results' %}"> 
+            
+            <input class="form-control me-2" id='search-input' name='q' type="text/search" placeholder="Search by Name..." oninput="liveSearch()" aria-label="Search">
+            <button  class="btn btn-outline-primary"type="submit">Search</button>
         </form>
         

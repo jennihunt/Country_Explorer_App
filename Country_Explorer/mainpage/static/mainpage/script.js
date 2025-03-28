@@ -16,6 +16,13 @@ const fetchUrl = urlContainer.getAttribute('data-fetch-url');
                 .catch(error => console.error("Error:", error));
         }
 
+        // function darktoggle() {
+        //     var element = document.getElementById('body');
+        //     element.classList.toggle("dark-mode");
+
+
+        // }
+
 
         function liveSearch() {
             let query = document.getElementById('search-input').value;

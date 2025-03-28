@@ -1,19 +1,46 @@
 
-body{
-    background-color: aqua;
+#body{
+    background-color: rgb(180, 182, 182,.5);
 }
 
+.dark-mode {
+    background-color: black;
+    color: white;
+  }
+
 #cardholder{
+    width: 95%;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
     background-color: grey;
+    align-items: center;
+    justify-content: space-around;
+    border: 8px solid rgb(125, 125, 197) ;
+    border-radius: 25px;
+    
+}
+.card-item {
+    margin: 4px;
+    padding: 10px;
+    border: 1px solid #ccc;
 }
 
-#card{
-    width:25%;
-    background-color: aqua;
-}
-h1{
-    color: pink;
+#title{
+    color: rgb(70, 132, 212);
+    text-shadow: 3px 3px 5px rgb(107, 99, 99);;
     font-size: 60px;
+    text-align: center;
+    
+}
+
+#detailscontainer{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 2%;
+    padding: 10px;
+    background-color: rgba(247, 243, 243, 0.863);
+    border: 10px outset rgb(125, 125, 197) ;
+    border-radius: 10%;
 }

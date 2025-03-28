@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .utils import fetch_store_countries
 from django.http import JsonResponse
+from django.utils import timezone
 import requests
 
 from .models import Country
@@ -18,11 +19,11 @@ class DetailView(DetailView):
     template_name='mainpage/country/country_detail.html'
 
 def reload_countries(request):
-    success = fetch_store_countries()
-    print("hey")
-    if success:
-        return JsonResponse({"message": "Data reloaded successfully!", "status": "success"})
-    else:
+    time=timezone.now()
+    try:
+        fetch_store_countries()
+        return JsonResponse({"message": f"Data reloaded successfully at {time}!", "status": "success"})
+    except Exception as e:
         return JsonResponse({"message": "Failed to reload data.", "status": "error"})
     
 def search(request):
@@ -33,3 +34,15 @@ def search_results(request):
     results = Country.objects.filter(name__icontains=query) if query else None
    
     return render(request, 'mainpage/search/searchresults.html', {'countries': results, 'query': query})
+
+def search_region(request):
+    query = request.GET.get('q')
+    results = Country.objects.filter(region__icontains=query) if query else None
+   
+    return render(request, 'mainpage/search/searchresults.html', {'countries': results, 'query': query})
+
+# def search_population(request):
+#     query = request.GET.get('q')
+#     results = Country.objects.filter(population__icontains=query) if query else None
+   
+#     return render(request, 'mainpage/search/searchresults.html', {'countries': results, 'query': query})

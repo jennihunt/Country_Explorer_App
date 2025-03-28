@@ -1,36 +1,76 @@
-## **Day 1: Django Project Setup and Database Configuration**
+# Country Explorer App
+This app utilizes information/data from  [REST Countries Api](https://restcountries.com/)  and stores info in PostgreSQL database.
+- uses model Country to represent country data
 
-### **Project Initialization:**
+## **Setup Instructions**
+- First you need to open a poetry enviroment
+- Connect to the postgreSQL database
+    - Postgresql info is foind on settings.py
+- If its the first time logging in make migrations and then runserver
+- You can generate postgresql db with REST Countries api data by running following code in terminal
+    - python manage.py fetch_countries
+    - Or by clicking the ReUpdate countries info button found in nav bar
+##
+# What you can expect to see in App:
+### **Visual Presentation and Navigation:**
 
-- Set up a new Django project and create an app (e.g., explorer).
-- Configure PostgreSQL as the database backend.
+- **Gallery View:**
+    -  homepage that displays a grid of country cards.
+    - Each card shows the country’s flag, name, region, and population.
+- **Detail View:**
+    - When a user clicks on a country card, links to  a detailed page with additional information (capital, languages, currencies, etc.).
+- **Search and Filtering:**
+    - search bar by name and working on filters (by region or population) so users can quickly locate countries of interest.
 
-### **Model Design and Admin Setup:**
+    - Static files hold css styling and javascript functionality
 
-- Design Django models to represent country data (fields for name, flag URL, capital, population, region, etc.).
-- Customize the Django Admin interface for managing country records.
-
-### **Basic Routing and Templates:**
-
-- Set up basic URL routes and create initial templates for the gallery view.
-
----
-
-## **Day 2: API Integration and Data Persistence**
+### **API integration and data persistence**
 
 ### **Fetch Country Data:**
 
-- Develop a Django management command and view to fetch data from the REST Countries API.
-- # python3 manage.py fetch_countries
+- Developed a Django management command (or view) to fetch data from the REST Countries API.
+    - you call this by running python manage.py fetch_countries
 
-- Parse the API response and populate the PostgreSQL database using your models.
+- Parsed the API responses and populate the PostgreSQL database using country model.
 
 ### **Data Refresh Mechanism:**
 
-- Implement error handling for API calls.
-- Optionally, allow users to trigger a manual refresh of the country data.
+- Implemented error handling for API calls.
+- Allow users to trigger a manual refresh of the country data.
+    - Persistent refresh button
+    - Correct location for functionality (`utils.py`)
+    - Proof of refresh is shown in both a pop up model and the updated date on each country item displayed
 
 
+# Things to still work on
+- Add count on mainpage
 
-#refresh option******
-time stamp last updated btn or logging middleware
+- set up search functionality for region and population
+
+- set up live search
+
+# **Stretch Goals**
+
+### **Additional Models:**
+
+- Add a `Language` model and a `Flag` model and establish the relationships between all three of your models.
+    - `Language` could trigger functionality to display text in that language
+
+### **Interactive Map Integration:**
+
+- Use a JavaScript mapping library (e.g., Leaflet) to plot countries on an interactive map.
+- Allow users to click on a map marker to see country details.
+
+### **User Favorites and Reviews:**
+
+- Implement login/logout functionality using the `User` model.
+- Enable users to mark countries as favorites.
+- Optionally add a review or rating system for each country.
+
+### **PDF Report Generation:**
+- Allow users to generate a PDF report of selected countries or search results.
+- Include key statistics and visual summaries in the report.
+
+### **Advanced Data Visualizations:**
+
+- Incorporate charts or graphs (using libraries like Chart.js) to display statistics such as population distribution by region.

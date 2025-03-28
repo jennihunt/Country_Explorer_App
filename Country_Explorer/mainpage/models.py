@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class Country(models.Model):
@@ -13,7 +14,7 @@ class Country(models.Model):
     
     languages=models.JSONField(default=dict,null=True, blank=True)
     continents=models.CharField(max_length=500, blank=True, null=True)
-    last_updated=models.DateTimeField(auto_now=True)  # Ensure this field is present
+    last_updated=models.DateTimeField(default=timezone.now)  # Ensure this field is present
 
 
    

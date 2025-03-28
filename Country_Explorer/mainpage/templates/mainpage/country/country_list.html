@@ -3,21 +3,23 @@
 
 {% block content %}
 
-<h1>All Countries</h1>
+<h1 id="title">All Countries</h1>
 
 
 
 <div id="cardholder">
     {% for country in countries %}
    
-        <div id="card">
-            <img src={{country.flag_url}} alt="flag img">
-            <a href="{% url 'country_detail' country.pk %}">{{ country.name}}</a><br>
+        <div class="card card-item"  style="width: 18rem;">
+            <img src={{country.flag_url}} class="card-img-top" alt="flag img">
+            <div>
+            <h5>{{ country.name}}</h5>
 
-            Region: {{country.region}}<br>
-            Population: {{country.population}}<br>
-            Last Updated:{{country.last_updated}}
-
+            <p class="card-text">Region: {{country.region}}</p>
+            <p>Population: {{country.population}}</p>
+            <p>Last Updated:{{country.last_updated}}</p>
+            <a href="{% url 'country_detail' country.pk %}" class="btn btn-primary">click for deatails</a><br>
+            </div>
 
         </div>
    
