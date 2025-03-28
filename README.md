@@ -20,7 +20,7 @@ This app utilizes information/data from  [REST Countries Api](https://restcountr
 - **Detail View:**
     - When a user clicks on a country card, links to  a detailed page with additional information (capital, languages, currencies, etc.).
 - **Search and Filtering:**
-    - search bar by name and working on filters (by region or population) so users can quickly locate countries of interest.
+    - search bar by name and ,working on filters (by population) so users can quickly locate countries of interest.
 
     - Static files hold css styling and javascript functionality
 
@@ -45,11 +45,11 @@ This app utilizes information/data from  [REST Countries Api](https://restcountr
 # Things to still work on
 - Add count on mainpage
 
-- set up search functionality for ,<s>region</s> and population
+- set up search functionality for  population
 
 - set up live search
 
-# **Stretch Goals**
+# **Stretch Goals To Work On **
 
 ### **Additional Models:**
 

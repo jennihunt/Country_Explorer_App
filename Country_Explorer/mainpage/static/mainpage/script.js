@@ -2,9 +2,12 @@
 const urlContainer = document.getElementById('url-container');
 const fetchUrl = urlContainer.getAttribute('data-fetch-url');
 
+const urlContainer2 = document.getElementById('url-container-search');
+const fetchUrl2 = urlContainer.getAttribute('data-fetch-url');
+
 
         function reloadData() {
-            console.log('hi')
+        
             fetch(fetchUrl)
                 .then(response => response.json())
                 .then(data => {
@@ -25,10 +28,14 @@ const fetchUrl = urlContainer.getAttribute('data-fetch-url');
 
 
         function liveSearch() {
+
             let query = document.getElementById('search-input').value;
-            
-            fetch(`/countries/?q=${query}`, { headers: { "X-Requested-With": "XMLHttpRequest" } })
+ 
+        console.log(query)
+
+            fetch(urlContainer2 )
             .then(response => response.json())
+            console.log(response)
             .then(data => {
                 let resultsContainer = document.getElementById('results');
                 resultsContainer.innerHTML = '';  // Clear previous results
