@@ -4,23 +4,33 @@ This app utilizes information/data from  [REST Countries Api](https://restcountr
 
 ## **Setup Instructions**
 - First you need to open a poetry enviroment
+    - poetry install to get dependencies
+    - start poetry eval $(poetry env activate)
+
 - Connect to the postgreSQL database
-    - Postgresql info is foind on settings.py
-- If its the first time logging in make migrations and then runserver
+    - Create Postgresql database in command line 
+        - FIRST ENTER THE PQSL COMMAND LINE 
+        - CREATE DATABASE country_explorer [ WITH ] [ OWNER [=] user_name ]
+        - change Database feild to match your postgresql db username and password
+
+    - create a superuser to be able to check admin package
+        - python manage.py createsuperuser
+
+- Make migrations ,Migrate and then runserver
 - You can generate postgresql db with REST Countries api data by running following code in terminal
     - python manage.py fetch_countries
-    - Or by clicking the ReUpdate countries info button found in nav bar
+    - Or by clicking the ReUpdate countries info button found in nav bar or footer
 ##
 # What you can expect to see in App:
 ### **Visual Presentation and Navigation:**
 
 - **Gallery View:**
-    -  homepage that displays a grid of country cards.
+    - homepage displays a grid of country cards.
     - Each card shows the country’s flag, name, region, and population.
 - **Detail View:**
     - When a user clicks on a country card, links to  a detailed page with additional information (capital, languages, currencies, etc.).
 - **Search and Filtering:**
-    - search bar by name and ,working on filters (by population) so users can quickly locate countries of interest.
+    - search bar by name and region,working on filters (by population) so users can quickly locate countries of interest.
 
     - Static files hold css styling and javascript functionality
 
@@ -44,9 +54,7 @@ This app utilizes information/data from  [REST Countries Api](https://restcountr
 
 # Things to still work on
 - Add count on mainpage
-
 - set up search functionality for  population
-
 - set up live search
 
 # **Stretch Goals To Work On **

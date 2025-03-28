@@ -7,12 +7,25 @@
     <h1 id="title">Search Results for "{{ query }}"</h1>
 {% endif%}
 
+
 <ul id="results">
     {% for country in countries %}
-        <li>{{ country.name }}</li>
+
+        
+    <div id ='search-card'class="card text-center mb-3" style="width: 18rem;" >
+        <div class="card-body">
+          <h5 class="card-title">
+            {{ country.name }}</h5>
+          <p class="card-text"><u><i>Region</i></u>
+            {{ country.region}}</p>
+          <a href="{% url 'country_detail' country.pk %}"class="btn btn-secondary">View More Details</a>
+        </div>
+      </div>
+
     {% empty %}
         <p>No results found.</p>
     {% endfor %}
 </ul>
+
 
 {% endblock %}

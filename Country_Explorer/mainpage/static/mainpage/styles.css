@@ -14,18 +14,23 @@
     display: flex;
     flex-wrap: wrap;
     background-color: grey;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
     border: 8px solid rgb(125, 125, 197) ;
     border-radius: 25px;
     
 }
 .card-item {
-    margin: 4px;
+    margin: 6px;
     padding: 10px;
     border: 1px solid #ccc;
 }
+.card-height{
+    height: 53%;
+}
+#search-card{
+    background-color: rgb(151, 148, 148);
 
+}
 #title{
     color: rgb(70, 132, 212);
     text-shadow: 3px 3px 5px rgb(107, 99, 99);;
@@ -43,4 +48,24 @@
     background-color: rgba(247, 243, 243, 0.863);
     border: 10px outset rgb(125, 125, 197) ;
     border-radius: 10%;
+}
+
+#results{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+#footer{
+    position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #f0f0f0; /* Optional: Add a background color */
+      padding: 10px; 
+}
+
+#footerreload{
+    float: right;
 }
