@@ -45,7 +45,7 @@ This app utilizes information/data from  [REST Countries Api](https://restcountr
 # Things to still work on
 - Add count on mainpage
 
-- set up search functionality for region and population
+- set up search functionality for ,<s>region</s> and population
 
 - set up live search
 

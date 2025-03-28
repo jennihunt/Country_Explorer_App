@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .utils import fetch_store_countries
+from django.db.models import Q
+# . Q objects provides you complete control over the where clause of the query.
+# If you want to {OR/AND/ALL FOR ONE NOT FOR ALL}  your conditions.
 from django.http import JsonResponse
 from django.utils import timezone
 import requests
@@ -31,18 +34,7 @@ def search(request):
 
 def search_results(request):
     query = request.GET.get('q')
-    results = Country.objects.filter(name__icontains=query) if query else None
+    results = Country.objects.filter(Q(name__icontains=query)|Q(region__icontains=query)) if query else None
    
     return render(request, 'mainpage/search/searchresults.html', {'countries': results, 'query': query})
 
-def search_region(request):
-    query = request.GET.get('q')
-    results = Country.objects.filter(region__icontains=query) if query else None
-   
-    return render(request, 'mainpage/search/searchresults.html', {'countries': results, 'query': query})
-
-# def search_population(request):
-#     query = request.GET.get('q')
-#     results = Country.objects.filter(population__icontains=query) if query else None
-   
-#     return render(request, 'mainpage/search/searchresults.html', {'countries': results, 'query': query})

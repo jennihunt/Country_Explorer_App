@@ -2,14 +2,9 @@
 {% load static %}
 
 {% block content %}
-<!-- {% include 'mainpage/search/search.html' %}
-{% include 'mainpage/search/searchregion.html' %} -->
-
-
-
 
 {% if query %}
-    <h2>Search Results for "{{ query }}"</h2>
+    <h1 id="title">Search Results for "{{ query }}"</h1>
 {% endif%}
 
 <ul id="results">
