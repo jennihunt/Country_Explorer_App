@@ -17,7 +17,7 @@
 <!-- Loop through the currencies dictionary and extract the name -->
  <strong> Currency :</strong>
 {% for key,currency_info in country.currencies.items%}
-<li>{{key}}, {{ currency_info }} </li>
+<li>{{ currency_info.name }} ,{{currency_info.symbol}}</li>
 {% endfor %}
 {% else %}
 <p>No currencies available</p>
