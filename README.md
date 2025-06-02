@@ -1,6 +1,5 @@
 # Country Explorer App
-This app utilizes information/data from  [REST Countries Api](https://restcountries.com/)  and stores info in PostgreSQL database.
-- uses model Country to represent country data
+Country Explorer is a web application that lets users search for and explore information about countries worldwide. The app leverages the  [REST Countries Api](https://restcountries.com/)  to fetch up-to-date data and stores relevant details in a PostgreSQL database for efficient access and further analysis.
 
 ## **Setup Instructions**
 - First you need to open a poetry enviroment
@@ -20,36 +19,75 @@ This app utilizes information/data from  [REST Countries Api](https://restcountr
 - You can generate postgresql db with REST Countries api data by running following code in terminal
     - python manage.py fetch_countries
     - Or by clicking the ReUpdate countries info button found in nav bar or footer
-##
-# What you can expect to see in App:
-### **Visual Presentation and Navigation:**
+## Features
+🌍 Search and discover countries by name or region
+📊 View detailed information, including population, languages, currencies, capital, and more
+🗺️ Interactive, user-friendly interface built with Python, HTML, CSS, and JavaScript
+💾 Persistent storage of country data in PostgreSQL
+🔄 Fetches and updates country information using the REST Countries API
 
-- **Gallery View:**
-    - homepage displays a grid of country cards.
-    - Each card shows the country’s flag, name, region, and population.
-- **Detail View:**
-    - When a user clicks on a country card, links to  a detailed page with additional information (capital, languages, currencies, etc.).
-- **Search and Filtering:**
-    - search bar by name and region,working on filters (by population) so users can quickly locate countries of interest.
+##Technologies Used
+- Backend: Python (Flask or Django recommended)
+- Frontend: HTML, CSS, JavaScript
+- Database: PostgreSQL
+- APIs: REST Countries API
 
-    - Static files hold css styling and javascript functionality
+# Getting Started
+## Prerequisites
+- Python 3.x
+- PostgreSQL
+- pipenv or pip for managing Python dependencies
+  
+## Installation
+Clone the repository
+- git clone https://github.com/jennihunt/Country_Explorer_App.git
+- cd Country_Explorer_App
+- 
+Install dependencies
+pipenv install
+# or
+pip install -r requirements.txt
 
-### **API integration and data persistence**
+Configure the database
+- Create a PostgreSQL database (e.g., country_explorer)
+- Update your database credentials in the app’s configuration file (config.py or .env as applicable)
 
-### **Fetch Country Data:**
+Run migrations (if applicable)
+# Example for Flask-Migrate or Django
+- flask db upgrade
+# or
+- python manage.py migrate
 
-- Developed a Django management command (or view) to fetch data from the REST Countries API.
-    - you call this by running python manage.py fetch_countries
+Start the application
+- flask run
+# or
+- python manage.py runserver
+  
+Open your browser
+Visit http://localhost:5000 or the port shown in your terminal
 
-- Parsed the API responses and populate the PostgreSQL database using country model.
+# Usage
+- Search for a country by name or browse the list
+- Click on a country to view its details
+- All data is regularly updated from the REST Countries API and stored in PostgreSQL for fast retrieval
+S
 
-### **Data Refresh Mechanism:**
 
-- Implemented error handling for API calls.
-- Allow users to trigger a manual refresh of the country data.
-    - Persistent refresh button
-    - Correct location for functionality (`utils.py`)
-    - Proof of refresh is shown in both a pop up model and the updated date on each country item displayed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Things to still work on
